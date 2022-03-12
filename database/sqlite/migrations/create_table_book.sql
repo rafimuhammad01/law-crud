@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS books (
+    id INTEGER PRIMARY KEY AUTOINCREMENT, 
+    title VARCHAR(128) NOT NULL,
+    author VARCHAR(128) NOT NULL DEFAULT "",
+    description TEXT NOT NULL DEFAULT "",
+    volume INTEGER NOT NULL DEFAULT 0,
+    total_page INTEGER NOT NULL DEFAULT 0,
+    release_date date
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at Timestamp DEFAULT CURRENT_TIMESTAMP
+);
