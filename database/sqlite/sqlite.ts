@@ -11,8 +11,12 @@ export class SQLite {
     private initDB(): BetterSqlite3.Database|undefined  {
         let db = new Database('./database/sqlite/law-db.db', { verbose: console.log });
 
-        const migration = fs.readFileSync('./database/sqlite/migrations/create_table_book.sql', 'utf8');
+        let migration = fs.readFileSync('./database/sqlite/migrations/create_table_book.sql', 'utf8');
         db.exec(migration);
+
+        migration = fs.readFileSync('./database/sqlite/migrations/create_table_image.sql', 'utf8');
+        db.exec(migration);
+
         return db
     }
 }

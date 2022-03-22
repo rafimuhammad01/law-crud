@@ -32,6 +32,7 @@ export const errorHandler : ErrorRequestHandler = (e: any, req: Request, res: Re
         })
     }
 
+    console.log(e)
     res.
     status(HttpStatus.INTERNAL_SERVER_ERROR).
     json({

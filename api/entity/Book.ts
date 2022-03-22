@@ -3,6 +3,7 @@ export interface BookList {
     title : string,
     author: string, 
     description : string,
+    images? : BookImage[]
 }
 
 export interface BookDetail {
@@ -13,4 +14,11 @@ export interface BookDetail {
     volume : number,
     total_page : number,
     release_date : Date,
+    images? : BookImage[]
+}
+
+export interface BookImage {
+    id? : number
+    file : File
+    url : string
 }

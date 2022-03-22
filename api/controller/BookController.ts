@@ -1,6 +1,7 @@
 import { BookService } from "../service/BookService";
 import { NextFunction, Request, Response } from "express"
-import { BookDetail } from "../entity/Book";
+import { BookDetail, BookImage } from "../entity/Book";
+import { responseEncoding } from "axios";
 var HttpStatus = require('http-status-codes');
 
 export class BookController {
@@ -83,6 +84,17 @@ export class BookController {
             res.status(HttpStatus.CREATED).json({ 
                 data : book as any
             })
+        } catch (e) {
+            next(e)
+        }
+    }
+
+    upload = (req: Request, res: Response, next: NextFunction) => {
+        try {
+            return res.json({ 
+                id: req.file?.filename,
+                url: req.file?.path 
+            });
         } catch (e) {
             next(e)
         }
